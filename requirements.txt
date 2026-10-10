@@ -1,0 +1,10 @@
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.7
+scikit-learn>=1.4
+scipy>=1.11
+ipywidgets>=8.0
+shap>=0.44
+lime>=0.2.0.1
+gemex>=1.2.2
+jupyterlab>=4.0
