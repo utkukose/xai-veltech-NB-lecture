@@ -112,6 +112,12 @@ details.ans{margin:4px 0 14px}
 .colabbox p{margin:0}
 .colabbox .colabbtn img{display:block;height:22px}
 .colabpart{margin:.8rem 0 0;font-size:.95rem}
+.mail{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0;line-height:2.1;font-size:.98rem}
+.mailw{font:inherit;border:1.5px solid;border-radius:5px;padding:0 .3rem;margin:0 .05rem;cursor:pointer;color:var(--ink)}
+.mailw.off{text-decoration:line-through;opacity:.55}
+.backpart{margin:.9rem 0 0;font-size:.95rem;border-left:4px solid var(--accent);padding:.35rem .7rem;background:var(--panel);border-radius:6px}
+.backpart a{font-weight:600}
+.labbox{scroll-margin-top:12px}
 /* Step-by-step calculators of the lab */
 .labpart{scroll-margin-top:10px}
 h3[id]{scroll-margin-top:10px}
@@ -235,14 +241,14 @@ blockquote{border-left-color:var(--accent);border-radius:0 10px 10px 0}
 :root{--accent:#4338CA;--band:rgba(67,56,202,.08)}@media (prefers-color-scheme:dark){:root{--accent:#A5B4FC;--band:rgba(165,180,252,.13)}}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]]},svg:{fontCache:"local"}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head>
 <body><div class="wrap">
 <header class="top"><p class="course">Explainable Artificial Intelligence (VTR UGE 21), day 1 of 5</p><h1>Foundations of Interpretability</h1><p class="who">Prof. Dr. Utku Kose, Süleyman Demirel University</p><nav><a href="../../index.html">Course home</a><a href="https://github.com/utkukose/xai-veltech-NB-lecture/tree/main/days/day-01">Day overview</a><a href="lecture.html">Lecture</a><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-01/NB01_foundations_of_interpretability.ipynb">Colab notebook</a><a href="Day01_Lecture_Notes.pdf">PDF notes</a></nav></header>
-<h2>Glass-box lab</h2><p>Part A places eight explanations from practice on the map of methods. Parts B and C repeat two calculations of the lecture step by step, with sliders for their numbers: one prediction of a logistic regression and the first question of a tree. Part D follows five patients through a small decision tree by hand. Part E compares interpretable models on simulated tumours with two measurements and records accuracy against the number of values a reader must hold in mind. Part F repeats the area under the curve (AUC) by counting pairs step by step, also with sliders. In Parts B, C and F every intermediate value is rounded, and the next step continues with the rounded value, as in a calculation by hand.</p>
+<h2>Glass-box lab</h2><p>Part A places eight explanations from practice on the map of methods. Parts B and C repeat two calculations of the lecture step by step, with sliders for their numbers: one prediction of a logistic regression and the first question of a tree. Part D follows five patients through a small decision tree by hand. Part E compares interpretable models on simulated tumours with two measurements and records accuracy against the number of values a reader must hold in mind. Part F repeats the area under the curve (AUC) by counting pairs step by step, also with sliders. In Parts B, C and F every intermediate value is rounded, and the next step continues with the rounded value, as in a calculation by hand. Part G trains a spam filter by hand on eight e-mails, which move between the inbox and the spam folder as the weights change.</p>
 <div class="tabs" role="tablist"><button aria-selected="true">Explore</button><button aria-selected="false">Check yourself</button><button aria-selected="false">Reflect and export</button></div>
 <section class="tabpanel"><h3 id="pa">Part A: Sort the explanations</h3>
 <p>Each card describes an explanation used in practice. Decide whether it describes the whole model or one prediction, and
 whether it comes from a model that is readable by design or is computed after training. Then press <b>Check the cards</b>.</p>
 <div id="sb-cards"></div>
 <p><button class="btn" id="sb-check" type="button">Check the cards</button> <span id="sb-score" class="small"></span></p>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-01/NB01_foundations_of_interpretability.ipynb#scrollTo=sec-2" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 2: the smallest model that is readable by design, a threshold rule.</a></p><section class="labpart" id="pb"><h3>Part B: One prediction of a logistic regression, step by step</h3><p>The worked example of the lecture: a logistic regression with three features, the weights \(-0.9\), \(-1.2\) and \(0.7\) and the bias \(b = 0.3\). The sliders set the scaled values of one patient, each counted in standard deviations from the mean of the training tumours, and the bias. The steps compute the contributions, the score, the probability of benign and the odds. The left figure adds the contributions up to the score, and the right one places the score on the logistic curve.</p><div class="stepcalc" id="pb-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-01/NB01_foundations_of_interpretability.ipynb#scrollTo=sec-3" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 3: the contributions of every test patient for all 30 measurements.</a></p><section class="labpart" id="pc"><h3>Part C: The first question of a tree, step by step</h3><p>The worked example of the lecture: The root of the tree holds the 426 training tumours, 159 malignant and 267 benign. A question sends some of them to the left and the rest to the right. The sliders set how many malignant and how many benign tumours go to the left. The steps compute the Gini impurity of the root, of both sides and of the split, and the share of training tumours that the question alone classifies correctly. The left figure shows the classes at the root and on both sides, and the right one places the three nodes on the curve \(G = 2p(1 - p)\).</p><div class="stepcalc" id="pc-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-01/NB01_foundations_of_interpretability.ipynb#scrollTo=sec-4" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 4: a tree of depth 3 grown by the same rule on all 30 measurements.</a></p><h3 id="pd">Part D: Read a tree by hand</h3>
+<p class="backpart"><a href="lecture.html#lab-pa">Back to the lecture: A map of explanation methods</a>, where the text continues after the box of this part.</p><section class="labpart" id="pb"><h3>Part B: One prediction of a logistic regression, step by step</h3><p>The worked example of the lecture: a logistic regression with three features, the weights \(-0.9\), \(-1.2\) and \(0.7\) and the bias \(b = 0.3\). The sliders set the scaled values of one patient, each counted in standard deviations from the mean of the training tumours, and the bias. The steps compute the contributions, the score, the probability of benign and the odds. The left figure adds the contributions up to the score, and the right one places the score on the logistic curve.</p><div class="stepcalc" id="pb-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pb">Back to the lecture: Models that explain themselves</a>. The lecture continues there with Section 3 of the Colab notebook: Open it from the next orange box.</p><section class="labpart" id="pc"><h3>Part C: The first question of a tree, step by step</h3><p>The worked example of the lecture: The root of the tree holds the 426 training tumours, 159 malignant and 267 benign. A question sends some of them to the left and the rest to the right. The sliders set how many malignant and how many benign tumours go to the left. The steps compute the Gini impurity of the root, of both sides and of the split, and the share of training tumours that the question alone classifies correctly. The left figure shows the classes at the root and on both sides, and the right one places the three nodes on the curve \(G = 2p(1 - p)\).</p><div class="stepcalc" id="pc-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pc">Back to the lecture: Models that explain themselves</a>, where the text continues after the box of this part.</p><h3 id="pd">Part D: Read a tree by hand</h3>
 <p>The tree below is a small illustrative classifier for tumours. Follow each patient from the top question to a leaf, choose
 the prediction and press <b>Check the paths</b>. The feedback shows the path the tree takes.</p>
 <pre class="tree">Is worst concave points at most 0.14?
@@ -255,7 +261,7 @@ the prediction and press <b>Check the paths</b>. The feedback shows the path the
 <div class="tablewrap"><table><thead><tr><th>Patient</th><th>Worst concave points</th><th>Worst radius</th><th>Worst texture</th>
 <th>Your prediction</th><th>Feedback</th></tr></thead><tbody id="sc-tb"></tbody></table></div>
 <p><button class="btn" id="sc-check" type="button">Check the paths</button> <span id="sc-score" class="small"></span></p>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-01/NB01_foundations_of_interpretability.ipynb#scrollTo=sec-4" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 4: draw the full tree and follow any patient.</a></p><h3 id="pe">Part E: Accuracy against readability</h3>
+<p class="backpart"><a href="lecture.html#lab-pd">Back to the lecture: Models that explain themselves</a>. The lecture continues there with Section 4 of the Colab notebook: Open it from the next orange box.</p><h3 id="pe">Part E: Accuracy against readability</h3>
 <div class="bench">
 <p>Choose a model family and its setting, then press <b>Run and add to scoreboard</b>. The panel shows the decision regions
 on held-out tumours. Every run is added to the scoreboard below as one point: Test accuracy against the number of values a
@@ -276,10 +282,20 @@ stops improving: The point where the frontier flattens is the place to stop addi
 <div class="tablewrap"><table><thead><tr><th>Run</th><th>Model</th><th>Values to read</th><th>Test accuracy</th></tr></thead>
 <tbody id="g-tb"></tbody></table></div>
 </div>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-01/NB01_foundations_of_interpretability.ipynb#scrollTo=sec-5" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 5: the same comparison with all 30 measurements and a random forest.</a></p><section class="labpart" id="pf"><h3>Part F: An AUC by counting pairs</h3><p>The worked example of the lecture: three benign and two malignant tumours with their probabilities of benign. Every pair of one benign and one malignant tumour is checked. It counts as correctly ordered when the benign tumour has the higher probability, and as one half when both probabilities are equal. The sliders set the five probabilities, and the figure places the tumours on the axis of probabilities and draws every pair that has been checked.</p><div class="stepcalc" id="pf-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-01/NB01_foundations_of_interpretability.ipynb#scrollTo=sec-5" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 5: seven models compared on all 143 test tumours.</a></p></section>
+<p class="backpart"><a href="lecture.html#lab-pe">Back to the lecture: Accuracy and readability</a>, where the text continues after the box of this part.</p><section class="labpart" id="pf"><h3>Part F: An AUC by counting pairs</h3><p>The worked example of the lecture: three benign and two malignant tumours with their probabilities of benign. Every pair of one benign and one malignant tumour is checked. It counts as correctly ordered when the benign tumour has the higher probability, and as one half when both probabilities are equal. The sliders set the five probabilities, and the figure places the tumours on the axis of probabilities and draws every pair that has been checked.</p><div class="stepcalc" id="pf-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pf">Back to the lecture: Accuracy and readability</a>. The lecture continues there with Section 5 of the Colab notebook: Open it from the next orange box.</p><h3 id="pg">Part G: A spam filter trained by hand</h3>
+<p>The filter is a logistic regression on five words: Each e-mail gets the score \(z = b + \sum_j w_j x_j\), where
+\(x_j\) counts how often word \(j\) occurs, and it lands in the spam folder when \(p = \sigma(z) &gt; 0.5\), that is when
+\(z &gt; 0\). The tag on each card gives its true class. Set the weights so that every e-mail lands in the right folder,
+and use as few words as possible: A weight of 0 means that the filter ignores the word, so a filter with few words is easier
+to read. Click a card to see the contributions of its words.</p>
+<div class="bench"><div class="row" id="sg-sl"></div>
+<canvas class="paper" id="sg-cv" aria-label="Eight e-mails sorted into the inbox and the spam folder"></canvas>
+<div id="sg-ro"></div>
+<p><button class="btn" id="sg-check" type="button">Check the filter</button> <span class="small" id="sg-fb"></span></p></div>
+<p class="backpart"><a href="lecture.html#lab-pg">Back to the lecture: Explanations in your field</a>. The lecture continues there with Section 7 of the Colab notebook: Open it from the next orange box.</p></section>
 <section class="tabpanel" hidden><p>Answer each question, rate your confidence and check the answer. Results stay in this browser.</p><div id="quiz"></div></section>
 <section class="tabpanel" hidden><p>Write a short answer to each question. The text is saved in this browser and is included when you export the learning log.</p><div id="reflect"></div></section>
-<footer class="sig"><p><strong>Prof. Dr. Utku Kose</strong><br>Full Professor, Department of Computer Engineering, Süleyman Demirel University, Isparta, Türkiye<br>Founding Director, AI Application and Research Center (YAZEM), Süleyman Demirel University<br>Head of the Computer Science Division, Department of Computer Engineering, Süleyman Demirel University<br>Additional affiliations: University of North Dakota (USA), Universidad Panamericana (Mexico City, Mexico), Vel Tech University (Chennai, India)<br>IEEE Senior Member, ACM Professional Member<br><a href="https://orcid.org/0000-0002-9652-6415">ORCID 0000-0002-9652-6415</a> | <a href="https://www.utkukose.com">utkukose.com</a> | <a href="https://github.com/utkukose">github.com/utkukose</a><br><a href="mailto:utkukose@sdu.edu.tr">utkukose@sdu.edu.tr</a> | <a href="mailto:utku.kose@und.edu">utku.kose@und.edu</a> | <a href="mailto:ukose@up.edu.mx">ukose@up.edu.mx</a> | <a href="mailto:utkukose@gmail.com">utkukose@gmail.com</a></p><p>This course is updated in line with current developments in the field. Last update: October 2026. Course materials licensed under CC BY 4.0. Code licensed under MIT.</p></footer></div>
+<footer class="sig"><p><strong>Prof. Dr. Utku Kose</strong><br>Full Professor, Department of Computer Engineering, Süleyman Demirel University, Isparta, Türkiye<br>Founding Director, AI Application and Research Center (YAZEM), Süleyman Demirel University<br>Head of the Computer Science Division, Department of Computer Engineering, Süleyman Demirel University<br>Additional affiliations: University of North Dakota (USA), Universidad Panamericana (Mexico City, Mexico), Vel Tech University (Chennai, India)<br>IEEE Senior Member, ACM Professional Member<br><a href="https://orcid.org/0000-0002-9652-6415">ORCID 0000-0002-9652-6415</a> | <a href="https://www.utkukose.com">utkukose.com</a> | <a href="https://github.com/utkukose">github.com/utkukose</a><br><a href="mailto:utkukose@sdu.edu.tr">utkukose@sdu.edu.tr</a> | <a href="mailto:utku.kose@und.edu">utku.kose@und.edu</a> | <a href="mailto:ukose@up.edu.mx">ukose@up.edu.mx</a> | <a href="mailto:utkukose@gmail.com">utkukose@gmail.com</a></p><p>This course is updated in line with current developments in the field. First version: October 2026. Last update: October 2026. Course materials licensed under CC BY 4.0. Code licensed under MIT.</p></footer></div>
 <script>window.COURSE_PREFIX="vtxai";</script>
 <script>"use strict";
 const $ = (s, r = document) => r.querySelector(s);
@@ -1008,6 +1024,59 @@ partSteps('pf-calc', {
     }
   }
 });
+
+(function(){ if(!document.getElementById('sg-cv')) return;
+const WORDS=['free','winner','click','meeting','report'];
+const MAILS=[['Claim your free prize, winner',[1,1,1,0,0],1],['Winner: click now',[0,1,1,0,0],1],['Free, free trial',[2,0,0,0,0],1],
+ ['Click for a free gift',[1,0,1,0,0],1],['Meeting notes and report',[0,0,0,1,1],0],['Quarterly report attached',[0,0,0,0,1],0],
+ ['Free coffee at the meeting',[1,0,0,1,0],0],['Click to join the meeting',[0,0,1,1,0],0]];
+const wt=store.get('d1:partG',{w:[0,0,0,0,0],b:0}); let sel=0;
+const pos=MAILS.map(()=>({x:0,y:0,init:false}));
+const sl=$('#sg-sl');
+WORDS.forEach((wd,j)=>slider(sl,{label:'Weight of "'+wd+'"',min:-3,max:3,step:0.5,value:wt.w[j],fmt:v=>(v>0?'+':'')+v.toFixed(1)},v=>{wt.w[j]=v; save();}));
+slider(sl,{label:'Bias b',min:-3,max:3,step:0.5,value:wt.b,fmt:v=>(v>0?'+':'')+v.toFixed(1)},v=>{wt.b=v; save();});
+const ro=readout($('#sg-ro'),['e-mails in the right folder','words with a weight other than 0','selected e-mail: z and p']);
+function save(){ store.set('d1:partG',wt); upd(); }
+const z=m=>wt.b+m[1].reduce((s,c,j)=>s+c*wt.w[j],0), sig=v=>1/(1+Math.exp(-v));
+function upd(){ const ok=MAILS.filter(m=>(z(m)>0)===(m[2]===1)).length, k=wt.w.filter(v=>v!==0).length, m=MAILS[sel];
+  ro('e-mails in the right folder',ok+' of 8'); ro('words with a weight other than 0',k+' of 5');
+  ro('selected e-mail: z and p','z = '+z(m).toFixed(1)+', p = '+sig(z(m)).toFixed(3)); an.start(); }
+let L=null;
+const st=stage($('#sg-cv'),0.6,(ctx,w,hh)=>{ const C=COL(); ctx.clearRect(0,0,w,hh);
+  const top=Math.round(hh*0.56), fw=(w-24)/2, cw=(fw-24)/2, cardH=Math.max(18,Math.min(30,(top-44)/4-6));
+  ctx.font='600 13px '+cssv('--sans');
+  [['Inbox',0],['Spam folder',1]].forEach(([t,k])=>{ const x=k*(fw+24); ctx.strokeStyle=C.line; ctx.strokeRect(x,4,fw,top-8);
+    ctx.fillStyle=C.ink; ctx.textAlign='left'; ctx.fillText(t,x+8,22); });
+  const slots=[0,0]; L={cards:[]};
+  MAILS.forEach((m,i)=>{ const f=z(m)>0?1:0, k=slots[f]++, tx=f*(fw+24)+8+(k%2)*(cw+8), ty=32+Math.floor(k/2)*(cardH+6);
+    const p=pos[i]; if(!p.init){ p.x=tx; p.y=ty; p.init=true; } p.tx=tx; p.ty=ty;
+    const ok=(f===1)===(m[2]===1); ctx.fillStyle=mix(ok?C.ok:C.bad,cssv('--panel'),i===sel?0.32:0.14); ctx.fillRect(p.x,p.y,cw,cardH);
+    ctx.strokeStyle=i===sel?C.ink:C.line; ctx.lineWidth=i===sel?1.6:1; ctx.strokeRect(p.x,p.y,cw,cardH); ctx.lineWidth=1;
+    ctx.save(); ctx.beginPath(); ctx.rect(p.x,p.y,cw,cardH); ctx.clip();
+    ctx.fillStyle=C.ink; ctx.font='11px '+cssv('--sans'); ctx.textAlign='left'; ctx.fillText(m[0],p.x+5,p.y+cardH*0.45);
+    ctx.fillStyle=m[2]?C.bad:C.ok; ctx.font='600 9.5px '+cssv('--sans'); ctx.fillText((ok?'✓ ':'✗ ')+(m[2]?'SPAM':'NOT SPAM'),p.x+5,p.y+cardH*0.88);
+    ctx.restore(); L.cards.push([p.x,p.y,cw,cardH,i]); });
+  // contributions of the selected e-mail, one bar per row
+  const m=MAILS[sel], items=[['bias',wt.b]].concat(WORDS.map((wd,j)=>[wd+' × '+m[1][j],m[1][j]*wt.w[j]]));
+  const lx=118, rx=w-14, mid=(lx+rx)/2, sc=(rx-lx)/2/6, rowH=(hh-top-30)/items.length, y0=top+14;
+  ctx.fillStyle=C.ink; ctx.font='600 12px '+cssv('--sans'); ctx.textAlign='left'; ctx.fillText('Contributions to the score of "'+m[0]+'": z = '+z(m).toFixed(1),8,top+6);
+  ctx.strokeStyle=C.ink; ctx.beginPath(); ctx.moveTo(mid,y0); ctx.lineTo(mid,y0+rowH*items.length); ctx.stroke();
+  items.forEach(([t,v],k)=>{ const y=y0+k*rowH+rowH*0.18, hgt=rowH*0.64; ctx.fillStyle=v>=0?C.bad:C.ok;
+    ctx.fillRect(Math.min(mid,mid+v*sc),y,Math.abs(v*sc),hgt); ctx.fillStyle=C.ink; ctx.font='11px '+cssv('--sans'); ctx.textAlign='right';
+    ctx.fillText(t,lx-8,y+hgt*0.75); ctx.textAlign=v>=0?'left':'right'; ctx.fillStyle=C.steel; if(v!==0) ctx.fillText((v>0?'+':'')+v.toFixed(1),mid+v*sc+(v>=0?4:-4),y+hgt*0.75); });
+  ctx.fillStyle=C.steel; ctx.font='10px '+cssv('--sans'); ctx.textAlign='center'; ctx.fillText('towards the inbox',mid-(rx-lx)/4,hh-4); ctx.fillText('towards spam',mid+(rx-lx)/4,hh-4); });
+$('#sg-cv').addEventListener('click',e=>{ if(!L) return; const r=e.target.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+  L.cards.forEach(([cx,cy,cw,ch,i])=>{ if(x>=cx&&x<=cx+cw&&y>=cy&&y<=cy+ch){ sel=i; upd(); } }); });
+const an=loop(()=>{ let m=false; pos.forEach(p=>{ if(p.tx===undefined) return; const dx=p.tx-p.x, dy=p.ty-p.y;
+  if(Math.abs(dx)+Math.abs(dy)>0.5){ const k=reduced()?1:0.2; p.x+=dx*k; p.y+=dy*k; m=true; } else { p.x=p.tx; p.y=p.ty; } }); st.redraw(); if(!m) an.stop(); });
+$('#sg-check').addEventListener('click',()=>{ const ok=MAILS.filter(m=>(z(m)>0)===(m[2]===1)).length, k=wt.w.filter(v=>v!==0).length, fb=$('#sg-fb');
+  if(ok<8) fb.textContent=`${ok} of 8 e-mails are in the right folder. Click a wrong card and look at its bars: Which weight pushes it the wrong way?`;
+  else if(k>3) fb.textContent=`All 8 e-mails are right, with ${k} words. Try to reach 8 of 8 with three words or fewer: Is "winner" needed when "click" is in every prize e-mail?`;
+  else fb.textContent=`Correct: all 8 e-mails with ${k} words. The weights are a global explanation of the filter, and the bars of one card are a local explanation of one decision.`;
+  store.set('d1:partG:score',ok); });
+upd();
+})();
+
 })();
 </script>
 </body></html>

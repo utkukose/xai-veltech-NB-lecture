@@ -4,6 +4,8 @@ Every reference used anywhere in the course, in alphabetical order. Entries with
 
 - `adebayo2018` Adebayo, J., Gilmer, J., Muelly, M., Goodfellow, I., Hardt, M., & Kim, B. (2018). Sanity checks for saliency maps. In Advances in Neural Information Processing Systems 31 (NeurIPS 2018) (pp. 9505-9515). <https://arxiv.org/abs/1810.03292>
 
+- `alpaydin1998` Alpaydin, E., & Kaynak, C. (1998). Optical Recognition of Handwritten Digits [Dataset]. UCI Machine Learning Repository. <https://doi.org/10.24432/C50P49>
+
 - `ancona2018` Ancona, M., Ceolini, E., Öztireli, C., & Gross, M. (2018). Towards better understanding of gradient-based attribution methods for deep neural networks. In 6th International Conference on Learning Representations (ICLR 2018). arXiv:1711.06104.
 
 - `apley2020` Apley, D. W., & Zhu, J. (2020). Visualizing the effects of predictor variables in black box supervised learning models. Journal of the Royal Statistical Society Series B: Statistical Methodology, 82(4), 1059-1086. <https://doi.org/10.1111/rssb.12377>
@@ -17,6 +19,10 @@ Every reference used anywhere in the course, in alphabetical order. Entries with
 - `bharati2023` Bharati, S., Mondal, M. R. H., Podder, P., & Kose, U. (2023). Explainable artificial intelligence (XAI) with IoHT for smart healthcare: A review. In Interpretable Cognitive Internet of Things for Healthcare (pp. 1-24). Springer.
 
 - `bhatt2020` Bhatt, U., Xiang, A., Sharma, S., Weller, A., Taly, A., Jia, Y., Ghosh, J., Puri, R., Moura, J. M. F., & Eckersley, P. (2020). Explainable machine learning in deployment. In Proceedings of the Conference on Fairness, Accountability, and Transparency (FAT* '20) (pp. 648-657). ACM.
+
+- `buolamwini2018` Buolamwini, J., & Gebru, T. (2018). Gender shades: Intersectional accuracy disparities in commercial gender classification. In Proceedings of the 1st Conference on Fairness, Accountability and Transparency, Proceedings of Machine Learning Research 81 (pp. 77-91). <https://proceedings.mlr.press/v81/buolamwini18a.html>
+
+- `deng2009` Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., & Fei-Fei, L. (2009). ImageNet: A large-scale hierarchical image database. In 2009 IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 248-255). <https://doi.org/10.1109/CVPR.2009.5206848>
 
 - `dombrowski2019` Dombrowski, A.-K., Alber, M., Anders, C. J., Ackermann, M., Müller, K.-R., & Kessel, P. (2019). Explanations can be manipulated and geometry is to blame. In Advances in Neural Information Processing Systems 32 (NeurIPS 2019).
 
@@ -32,7 +38,9 @@ Every reference used anywhere in the course, in alphabetical order. Entries with
 
 - `guo2017` Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). On calibration of modern neural networks. In Proceedings of the 34th International Conference on Machine Learning (ICML 2017), PMLR 70, 1321-1330. <https://proceedings.mlr.press/v70/guo17a.html>
 
-- `harris2020` Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., et al. (2020). Array programming with NumPy. Nature, 585(7825), 357-362. <https://doi.org/10.1038/s41586-020-2649-2>
+- `harris2020` Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., Kern, R., Picus, M., Hoyer, S., van Kerkwijk, M. H., Brett, M., Haldane, A., Fernández del Río, J., Wiebe, M., Peterson, P., Gérard-Marchant, P., Sheppard, K., Reddy, T., Weckesser, W., Abbasi, H., Gohlke, C., & Oliphant, T. E. (2020). Array programming with NumPy. Nature, 585(7825), 357-362. <https://doi.org/10.1038/s41586-020-2649-2>
+
+- `he2016` He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 770-778). <https://doi.org/10.1109/CVPR.2016.90>
 
 - `hedstrom2023` Hedström, A., Weber, L., Krakowczyk, D., Bareeva, D., Motzkus, F., Samek, W., Lapuschkin, S., & Höhne, M. M.-C. (2023). Quantus: An explainable AI toolkit for responsible evaluation of neural network explanations and beyond. Journal of Machine Learning Research, 24(34), 1-11. <https://jmlr.org/papers/v24/22-0142.html>
 
@@ -44,13 +52,15 @@ Every reference used anywhere in the course, in alphabetical order. Entries with
 
 - `kim2018` Kim, B., Wattenberg, M., Gilmer, J., Cai, C., Wexler, J., Viégas, F., & Sayres, R. (2018). Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (TCAV). In Proceedings of the 35th International Conference on Machine Learning (ICML 2018), PMLR 80, 2668-2677. <https://proceedings.mlr.press/v80/kim18d.html>
 
-- `kluyver2016` Kluyver, T., Ragan-Kelley, B., Pérez, F., Granger, B., Bussonnier, M., Frederic, J., Kelley, K., Hamrick, J., Grout, J., Corlay, S., et al. (2016). Jupyter Notebooks: A publishing format for reproducible computational workflows. In Positioning and Power in Academic Publishing: Players, Agents and Agendas (pp. 87-90). IOS Press.
+- `kluyver2016` Kluyver, T., Ragan-Kelley, B., Pérez, F., Granger, B., Bussonnier, M., Frederic, J., Kelley, K., Hamrick, J., Grout, J., Corlay, S., Ivanov, P., Avila, D., Abdalla, S., Willing, C., & Jupyter development team. (2016). Jupyter Notebooks: A publishing format for reproducible computational workflows. In F. Loizides & B. Schmidt (Eds.), Positioning and Power in Academic Publishing: Players, Agents and Agendas (pp. 87-90). IOS Press. <https://doi.org/10.3233/978-1-61499-649-1-87>
 
 - `kose2026gemex` Kose, U. (2026). GEMEX: Model-agnostic XAI via geodesic entropic manifold analysis. In 2026 8th International Congress on Human-Computer Interaction, Optimization and Robotic Applications (ICHORA) (pp. 1-8). IEEE. <https://github.com/utkukose/gemex>
 
 - `kose2023biomed` Kose, U., Gupta, D., & Chen, X. (Eds.). (2023). Explainable Artificial Intelligence for Biomedical Applications. River Publishers.
 
 - `kose2024xai` Kose, U., Şengöz, N., Chen, X., & Marmolejo Saucedo, J. A. (Eds.). (2024). Explainable Artificial Intelligence (XAI) in Healthcare. CRC Press.
+
+- `lecun1989` LeCun, Y., Boser, B. E., Denker, J. S., Henderson, D., Howard, R. E., Hubbard, W. E., & Jackel, L. D. (1989). Backpropagation applied to handwritten zip code recognition. Neural Computation, 1(4), 541-551. <https://doi.org/10.1162/neco.1989.1.4.541>
 
 - `lipton2018` Lipton, Z. C. (2018). The mythos of model interpretability. Communications of the ACM, 61(10), 36-43.
 
@@ -65,6 +75,8 @@ Every reference used anywhere in the course, in alphabetical order. Entries with
 - `mitchell2019` Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D., & Gebru, T. (2019). Model cards for model reporting. In Proceedings of the Conference on Fairness, Accountability, and Transparency (FAT* '19) (pp. 220-229). ACM. <https://doi.org/10.1145/3287560.3287596>
 
 - `ortigossa2024` Ortigossa, E. S., Gonçalves, T., & Nonato, L. G. (2024). Explainable Artificial Intelligence (XAI) - from theory to methods and applications. IEEE Access, 12, 80799-80846.
+
+- `paszke2019` Paszke, A., Gross, S., Massa, F., Lerer, A., Bradbury, J., Chanan, G., Killeen, T., Lin, Z., Gimelshein, N., Antiga, L., Desmaison, A., Kopf, A., Yang, E., DeVito, Z., Raison, M., Tejani, A., Chilamkurthy, S., Steiner, B., Fang, L., Bai, J., & Chintala, S. (2019). PyTorch: An imperative style, high-performance deep learning library. In Advances in Neural Information Processing Systems 32 (NeurIPS 2019) (pp. 8024-8035). Curran Associates. <https://papers.nips.cc/paper/9015-pytorch>
 
 - `pedregosa2011` Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
 
@@ -92,10 +104,14 @@ Every reference used anywhere in the course, in alphabetical order. Entries with
 
 - `vanrossum2009` Van Rossum, G., & Drake, F. L. (2009). Python 3 Reference Manual. CreateSpace.
 
-- `virtanen2020` Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., et al. (2020). SciPy 1.0: Fundamental algorithms for scientific computing in Python. Nature Methods, 17(3), 261-272. <https://doi.org/10.1038/s41592-019-0686-2>
+- `virtanen2020` Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J., van der Walt, S. J., Brett, M., Wilson, J., Millman, K. J., Mayorov, N., Nelson, A. R. J., Jones, E., Kern, R., Larson, E., Carey, C. J., Polat, İ., Feng, Y., Moore, E. W., VanderPlas, J., Laxalde, D., Perktold, J., Cimrman, R., Henriksen, I., Quintero, E. A., Harris, C. R., Archibald, A. M., Ribeiro, A. H., Pedregosa, F., van Mulbregt, P., & SciPy 1.0 Contributors. (2020). SciPy 1.0: Fundamental algorithms for scientific computing in Python. Nature Methods, 17(3), 261-272. <https://doi.org/10.1038/s41592-019-0686-2>
 
 - `wachter2018` Wachter, S., Mittelstadt, B., & Russell, C. (2018). Counterfactual explanations without opening the black box: Automated decisions and the GDPR. Harvard Journal of Law & Technology, 31(2), 841-887. <https://jolt.law.harvard.edu/volumes/volume-31>
 
 - `wiegreffe2019` Wiegreffe, S., & Pinter, Y. (2019). Attention is not not Explanation. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP-IJCNLP) (pp. 11-20). ACL. <https://doi.org/10.18653/v1/D19-1002>
 
 - `wolberg1993uci` Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. <https://doi.org/10.24432/C5DW2B>
+
+- `zech2018` Zech, J. R., Badgeley, M. A., Liu, M., Costa, A. B., Titano, J. J., & Oermann, E. K. (2018). Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs: A cross-sectional study. PLOS Medicine, 15(11), e1002683. <https://doi.org/10.1371/journal.pmed.1002683>
+
+- `zhou2016` Zhou, B., Khosla, A., Lapedriza, A., Oliva, A., & Torralba, A. (2016). Learning deep features for discriminative localization. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 2921-2929). <https://doi.org/10.1109/CVPR.2016.319>

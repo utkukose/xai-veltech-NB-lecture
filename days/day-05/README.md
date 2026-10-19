@@ -9,7 +9,7 @@ Prof. Dr. Utku Kose, Süleyman Demirel University
 
 </div>
 
-From explanations to artefacts that people use: records, dashboards, model cards, risk tiers, and three case studies from finance, maintenance and text. **Estimated study time:** 6 to 8 hours.
+From explanations to artefacts that people use: records, dashboards, model cards, risk tiers, three case studies from finance, maintenance and text, and an audit dashboard that gathers the whole course. **Estimated study time:** 7 to 9 hours.
 
 ## Materials of the day
 
@@ -19,23 +19,23 @@ Each material has its own role. Start with the lecture page; the study path belo
 |---|---|---|
 | Lecture page | The concepts of the day, with animations, an interactive scene, knowledge checks, review cards and the references | [Lecture page](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lecture.html) |
 | Colab notebook | Python step 5: Classes, records and files, then the hands-on sections with exercises, an application switch and the application challenges | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb) |
-| Interactive lab | Governance lab: Six practice parts, a self-assessment and an exportable learning log | [Interactive lab](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lab.html) |
+| Interactive lab | Governance lab: Seven practice parts, a self-assessment and an exportable learning log | [Interactive lab](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lab.html) |
 | PDF lecture notes | The Python step and the lecture in one printable file | [PDF notes](Day05_Lecture_Notes.pdf) |
 
 <table><tr><td width="50%"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb"><img src="screenshots/nb_1.png" alt="A figure from the notebook of day 5"></a><br><sub>From the Colab notebook</sub></td><td width="50%"><a href="https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lab.html"><img src="screenshots/lab.png" alt="Interactive lab of day 5"></a><br><sub>The interactive lab</sub></td></tr></table>
 
 ## Learning outcomes
 
-By the end of the day, students are expected to create an explanation record with a fingerprint, to design a dashboard and a model card for a given reader, to place an application in the risk tiers of the Artificial Intelligence Act of the European Union (EU AI Act), to give actionable recourse that respects features that cannot change, to explain a maintenance model whose features are derived from signals, and to detect a spurious token in a text classifier. In Python, students are expected to use dataclasses, files in the JavaScript Object Notation (JSON) and hashes for reproducible records.
+By the end of the day, students are expected to create an explanation record with a fingerprint, to design a dashboard and a model card for a given reader, to place an application in the risk tiers of the Artificial Intelligence Act of the European Union (EU AI Act), to give actionable recourse that respects features that cannot change, to explain a maintenance model whose features are derived from signals, to detect a spurious token in a text classifier, and to audit one case with the methods of the whole course on a live dashboard. In Python, students are expected to use dataclasses, files in the JavaScript Object Notation (JSON) and hashes for reproducible records.
 
 ## Study path
 
 | Step | Activity | Suggested time |
 |---|---|---|
-| 1 | Read the [lecture page](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lecture.html) and answer its knowledge checks | 1 hour 30 minutes |
+| 1 | Read the [lecture page](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lecture.html) and answer its knowledge checks | 1 hour 45 minutes |
 | 2 | Run Python step 5: Classes, records and files in the [Colab notebook](https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb#scrollTo=python-step), right after the setup section | 1 hour |
-| 3 | Work through parts A to F of the [interactive lab](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lab.html) | 1 hour |
-| 4 | Work through the numbered sections of the notebook and their exercises | 2 hours 30 minutes |
+| 3 | Work through parts A to G of the [interactive lab](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lab.html) | 1 hour |
+| 4 | Work through the numbered sections of the notebook and their exercises | 3 hours |
 | 5 | Use the application switch of the notebook and solve the application challenge of your field | 45 minutes |
 | 6 | Take the self-assessment in the [interactive lab](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lab.html) (tab: Check yourself) | 20 minutes |
 | 7 | Write the reflection in the lab, export the learning log and complete the daily task below | 45 minutes |
@@ -47,12 +47,12 @@ The day runs as one synchronous session in class or online, and each material ha
 | Time | Activity |
 |---|---|
 | 0:00 to 0:10 | Opening: Who reads an explanation, and in which form? Students open the notebook in Colab, save a copy and run section 0 |
-| 0:10 to 0:45 | Lecture page, part 1: Records and dashboards, model cards and datasheets, the General Data Protection Regulation (GDPR) and the EU AI Act; then lab Part A with the whole class and Part B on the risk tier and the model card of an application chosen by the class |
+| 0:10 to 0:45 | Lecture page, part 1: Records and dashboards with the animation of the sealed marks sheet, model cards and datasheets with the animation of the two groups, the General Data Protection Regulation (GDPR) and the EU AI Act; then lab Part A with the whole class and Part B on the risk tier and the model card of an application chosen by the class |
 | 0:45 to 1:10 | Colab, together: Python step 5, ending with a record written to a file and read back |
 | 1:10 to 1:20 | Break |
-| 1:20 to 1:50 | Lecture page, part 2: Case study A with the recourse animation, case study B with the derived-feature animation, case study C; then lab Part D by hand |
-| 1:50 to 2:30 | Colab, in pairs: Sections 1 to 7 with their exercises, then section 8 with a different field for each pair |
-| 2:30 to 3:00 | Closing: Section 9 with the final project, questions and the course evaluation |
+| 1:20 to 1:50 | Lecture page, part 2: Case study A with the recourse animation and lab Part D by hand, case study B with the derived-feature animation, case study C, and stage 5 with lab Part G and the audit dashboard |
+| 1:50 to 2:30 | Colab, in pairs: Sections 1 to 7 with their exercises |
+| 2:30 to 3:00 | Closing: The audit dashboard of section 8 with the whole class, section 9 with a different field for each pair, section 10 with the final project, questions and the course evaluation |
 
 ## Daily task and submission
 

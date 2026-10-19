@@ -11,8 +11,8 @@ authors:
 repository-code: "https://github.com/utkukose/xai-veltech-NB-lecture"
 url: "https://utkukose.github.io/xai-veltech-NB-lecture/"
 license: CC-BY-4.0
-version: "2.0.0"
-date-released: "2026-10-04"
+version: "2.1.0"
+date-released: "2026-10-19"
 keywords:
   - explainable artificial intelligence
   - interpretable machine learning

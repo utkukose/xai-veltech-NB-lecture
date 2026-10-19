@@ -112,6 +112,12 @@ details.ans{margin:4px 0 14px}
 .colabbox p{margin:0}
 .colabbox .colabbtn img{display:block;height:22px}
 .colabpart{margin:.8rem 0 0;font-size:.95rem}
+.mail{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0;line-height:2.1;font-size:.98rem}
+.mailw{font:inherit;border:1.5px solid;border-radius:5px;padding:0 .3rem;margin:0 .05rem;cursor:pointer;color:var(--ink)}
+.mailw.off{text-decoration:line-through;opacity:.55}
+.backpart{margin:.9rem 0 0;font-size:.95rem;border-left:4px solid var(--accent);padding:.35rem .7rem;background:var(--panel);border-radius:6px}
+.backpart a{font-weight:600}
+.labbox{scroll-margin-top:12px}
 /* Step-by-step calculators of the lab */
 .labpart{scroll-margin-top:10px}
 h3[id]{scroll-margin-top:10px}
@@ -235,14 +241,14 @@ blockquote{border-left-color:var(--accent);border-radius:0 10px 10px 0}
 :root{--accent:#4338CA;--band:rgba(67,56,202,.08)}@media (prefers-color-scheme:dark){:root{--accent:#A5B4FC;--band:rgba(165,180,252,.13)}}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]]},svg:{fontCache:"local"}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head>
 <body><div class="wrap">
 <header class="top"><p class="course">Explainable Artificial Intelligence (VTR UGE 21), day 5 of 5</p><h1>Practice, Tooling and Governance</h1><p class="who">Prof. Dr. Utku Kose, Süleyman Demirel University</p><nav><a href="../../index.html">Course home</a><a href="https://github.com/utkukose/xai-veltech-NB-lecture/tree/main/days/day-05">Day overview</a><a href="lecture.html">Lecture</a><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb">Colab notebook</a><a href="Day05_Lecture_Notes.pdf">PDF notes</a></nav></header>
-<h2>Governance lab</h2><p>Part A matches readers with the artefacts they need. Part B walks through the risk tiers of the Artificial Intelligence Act of the European Union (EU AI Act) and builds a model card. Parts C, E and F repeat three calculations of the case studies step by step, with sliders for their numbers: recourse for the applicant of the lecture, the slope of a window of readings, and how much a spurious token says about the label. Part D computes actionable recourse by hand for a linear credit score. In Parts C, E and F every intermediate value is rounded, and the next step continues with the rounded value, as in a calculation by hand.</p>
+<h2>Governance lab</h2><p>Part A matches readers with the artefacts they need. Part B walks through the risk tiers of the Artificial Intelligence Act of the European Union (EU AI Act) and builds a model card. Parts C, E and F repeat three calculations of the case studies step by step, with sliders for their numbers: recourse for the applicant of the lecture, the slope of a window of readings, and how much a spurious token says about the label. Part D computes actionable recourse by hand for a linear credit score. Part G checks four copies of an archived explanation record against its digest. In Parts C, E and F every intermediate value is rounded, and the next step continues with the rounded value, as in a calculation by hand.</p>
 <div class="tabs" role="tablist"><button aria-selected="true">Explore</button><button aria-selected="false">Check yourself</button><button aria-selected="false">Reflect and export</button></div>
 <section class="tabpanel"><h3 id="pa">Part A: Which artefact for which reader?</h3>
 <p>Each reader needs a different artefact. Match every reader with the artefact that serves them best and press
 <b>Check the matches</b>.</p>
 <div class="tablewrap"><table><thead><tr><th>Reader</th><th>Artefact</th><th>Feedback</th></tr></thead><tbody id="gb-tb"></tbody></table></div>
 <p><button class="btn" id="gb-check" type="button">Check the matches</button> <span id="gb-score" class="small"></span></p>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb#scrollTo=sec-1" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 1: the explanation record, the first artefact of the day.</a></p><h3 id="pb">Part B: Risk tier and model card</h3>
+<p class="backpart"><a href="lecture.html#lab-pa">Back to the lecture: From findings to artefacts</a>. The lecture continues there with Section 1 of the Colab notebook: Open it from the next orange box.</p><h3 id="pb">Part B: Risk tier and model card</h3>
 <div class="bench">
 <p>This part has two steps. The first walks a system through a simplified version of the risk tiers of the EU AI Act and
 lists what the provider, the organisation that develops the system, must be able to produce. It is a teaching aid, not
@@ -278,17 +284,25 @@ Local explanations change by more than ten percent under perturbations of five p
 <p><button class="btn" id="m-dl" type="button">Download model card</button></p>
 <pre id="m-pv" style="white-space:pre-wrap;max-height:420px;overflow:auto"></pre>
 </div>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb#scrollTo=sec-4" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 4: the simplified rule as a function, called for four sectors.</a></p><section class="labpart" id="pc"><h3>Part C: Recourse for a linear score, step by step</h3><p>The worked example of the lecture: a credit score of two features, each scaled to the range from 0 to 1, the income \(x_1\) and the length of the credit history \(x_2\). The score is \(f(x)\)​\({} = 7 (x_1 - 0.55)\)​\({} + 5 (x_2 - 0.5)\), and an application with a score of 0 or more is approved. The sliders place the applicant and set the years that may pass, and every year adds 0.05 to the history. The steps compute the score, the nearest point on the boundary, the change of income alone and the change of income when years pass. The figure shows the approved region, the boundary, the nearest point and the two actionable paths.</p><div class="stepcalc" id="pc-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb#scrollTo=sec-5" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 5: the recourse search of a real credit model, with the cost of every change in standard deviations.</a></p><h3 id="pd">Part D: Recourse by hand</h3>
+<p class="backpart"><a href="lecture.html#lab-pb">Back to the lecture: Explanations and regulation</a>. The lecture continues there with Section 4 of the Colab notebook: Open it from the next orange box.</p><section class="labpart" id="pc"><h3>Part C: Recourse for a linear score, step by step</h3><p>The worked example of the lecture: a credit score of two features, each scaled to the range from 0 to 1, the income \(x_1\) and the length of the credit history \(x_2\). The score is \(f(x)\)​\({} = 7 (x_1 - 0.55)\)​\({} + 5 (x_2 - 0.5)\), and an application with a score of 0 or more is approved. The sliders place the applicant and set the years that may pass, and every year adds 0.05 to the history. The steps compute the score, the nearest point on the boundary, the change of income alone and the change of income when years pass. The figure shows the approved region, the boundary, the nearest point and the two actionable paths.</p><div class="stepcalc" id="pc-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pc">Back to the lecture: Case study A: credit scoring and actionable recourse</a>, where the text continues after the box of this part.</p><h3 id="pd">Part D: Recourse by hand</h3>
 <p>A credit model scores applicants with a linear formula and approves a score of zero or more:</p>
 <pre class="tree">score = 2.0 x income (in tens of thousands) - 3.0 x debt ratio + 0.5 x years of credit history - 4.0</pre>
 <p>An applicant with an income of 18 thousand, a debt ratio of 0.6 and 2 years of history was rejected. Compute three
 pieces of recourse, each changing one input while the others stay the same.</p>
 <div class="row" id="rc-in"></div>
 <p><button class="btn" id="rc-check" type="button">Check my values</button> <span id="rc-score" class="small"></span></p>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb#scrollTo=sec-5" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 5: recourse from a real credit model with a feature that cannot change.</a></p><section class="labpart" id="pe"><h3>Part E: The slope of a window, step by step</h3><p>The worked example of the lecture: a short window of five vibration readings at the positions 0 to 4. The sliders set the five readings, and the menu sets the time between two readings. The steps compute the two means, the distances from them, the slope of the least-squares line and the change per hour that a work order states. The figure shows the readings, their mean and the fitted line.</p><div class="stepcalc" id="pe-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb#scrollTo=sec-6" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 6: the slope of 60 readings as a feature of a maintenance model, translated into a work order.</a></p><section class="labpart" id="pf"><h3>Part F: How much the token says, step by step</h3><p>The worked example of the lecture: half of the reviews are positive, the token <em>verified</em> appears in 90 percent of the positive and in 10 percent of the negative reviews, and 5 percent of the labels are flipped. The sliders change these four shares. The steps compute how often the token appears, the probability that a review with the token is positive by Bayes' rule, the share of positive labels after the flips and how often a rule that reads nothing but the token is right. The figure divides all reviews by their sentiment and by the token.</p><div class="stepcalc" id="pf-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-05/NB05_practice_tooling_governance.ipynb#scrollTo=sec-7" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 7: the spurious token found by LIME and by the weights of the classifier.</a></p></section>
+<p class="backpart"><a href="lecture.html#lab-pd">Back to the lecture: Case study A: credit scoring and actionable recourse</a>. The lecture continues there with Section 5 of the Colab notebook: Open it from the next orange box.</p><section class="labpart" id="pe"><h3>Part E: The slope of a window, step by step</h3><p>The worked example of the lecture: a short window of five vibration readings at the positions 0 to 4. The sliders set the five readings, and the menu sets the time between two readings. The steps compute the two means, the distances from them, the slope of the least-squares line and the change per hour that a work order states. The figure shows the readings, their mean and the fitted line.</p><div class="stepcalc" id="pe-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pe">Back to the lecture: Case study B: predictive maintenance</a>. The lecture continues there with Section 6 of the Colab notebook: Open it from the next orange box.</p><section class="labpart" id="pf"><h3>Part F: How much the token says, step by step</h3><p>The worked example of the lecture: half of the reviews are positive, the token <em>verified</em> appears in 90 percent of the positive and in 10 percent of the negative reviews, and 5 percent of the labels are flipped. The sliders change these four shares. The steps compute how often the token appears, the probability that a review with the token is positive by Bayes' rule, the share of positive labels after the flips and how often a rule that reads nothing but the token is right. The figure divides all reviews by their sentiment and by the token.</p><div class="stepcalc" id="pf-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pf">Back to the lecture: Case study C: text classification</a>. The lecture continues there with Section 7 of the Colab notebook: Open it from the next orange box.</p><h3 id="pg">Part G: Break the seal? Four copies of an archived record</h3>
+<p>The record of the Python step, case 340 with a fidelity of 0.69 and two attributions, was archived with its digest
+<code>8cce1406ba987a12</code>: the first 16 characters of the hash that SHA-256, the Secure Hash Algorithm with an output of
+256 bits, computes from its JSON text with the keys in alphabetical order. Four copies of it turn up in four places. Compute the digest of each copy, compare it with the archived digest and mark each
+copy as unchanged or altered. A copy may list its fields in another order: The digest is computed from the text with sorted
+keys, so the order of the lines does not matter, only their content.</p>
+<div class="bench"><div id="tg-copies" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px"></div>
+<p><button class="btn" id="tg-check" type="button">Check my verdicts</button> <span class="small" id="tg-fb"></span></p></div>
+<p class="backpart"><a href="lecture.html#lab-pg">Back to the lecture: The diagnosis case, stage 5: artefacts for the clinic</a>, where the text continues after the box of this part.</p></section>
 <section class="tabpanel" hidden><p>Answer each question, rate your confidence and check the answer. Results stay in this browser.</p><div id="quiz"></div></section>
 <section class="tabpanel" hidden><p>Write a short answer to each question. The text is saved in this browser and is included when you export the learning log.</p><div id="reflect"></div></section>
-<footer class="sig"><p><strong>Prof. Dr. Utku Kose</strong><br>Full Professor, Department of Computer Engineering, Süleyman Demirel University, Isparta, Türkiye<br>Founding Director, AI Application and Research Center (YAZEM), Süleyman Demirel University<br>Head of the Computer Science Division, Department of Computer Engineering, Süleyman Demirel University<br>Additional affiliations: University of North Dakota (USA), Universidad Panamericana (Mexico City, Mexico), Vel Tech University (Chennai, India)<br>IEEE Senior Member, ACM Professional Member<br><a href="https://orcid.org/0000-0002-9652-6415">ORCID 0000-0002-9652-6415</a> | <a href="https://www.utkukose.com">utkukose.com</a> | <a href="https://github.com/utkukose">github.com/utkukose</a><br><a href="mailto:utkukose@sdu.edu.tr">utkukose@sdu.edu.tr</a> | <a href="mailto:utku.kose@und.edu">utku.kose@und.edu</a> | <a href="mailto:ukose@up.edu.mx">ukose@up.edu.mx</a> | <a href="mailto:utkukose@gmail.com">utkukose@gmail.com</a></p><p>This course is updated in line with current developments in the field. Last update: October 2026. Course materials licensed under CC BY 4.0. Code licensed under MIT.</p></footer></div>
+<footer class="sig"><p><strong>Prof. Dr. Utku Kose</strong><br>Full Professor, Department of Computer Engineering, Süleyman Demirel University, Isparta, Türkiye<br>Founding Director, AI Application and Research Center (YAZEM), Süleyman Demirel University<br>Head of the Computer Science Division, Department of Computer Engineering, Süleyman Demirel University<br>Additional affiliations: University of North Dakota (USA), Universidad Panamericana (Mexico City, Mexico), Vel Tech University (Chennai, India)<br>IEEE Senior Member, ACM Professional Member<br><a href="https://orcid.org/0000-0002-9652-6415">ORCID 0000-0002-9652-6415</a> | <a href="https://www.utkukose.com">utkukose.com</a> | <a href="https://github.com/utkukose">github.com/utkukose</a><br><a href="mailto:utkukose@sdu.edu.tr">utkukose@sdu.edu.tr</a> | <a href="mailto:utku.kose@und.edu">utku.kose@und.edu</a> | <a href="mailto:ukose@up.edu.mx">ukose@up.edu.mx</a> | <a href="mailto:utkukose@gmail.com">utkukose@gmail.com</a></p><p>This course is updated in line with current developments in the field. First version: October 2026. Last update: October 2026. Course materials licensed under CC BY 4.0. Code licensed under MIT.</p></footer></div>
 <script>window.COURSE_PREFIX="vtxai";</script>
 <script>"use strict";
 const $ = (s, r = document) => r.querySelector(s);
@@ -980,6 +994,73 @@ partSteps('pf-calc', {
     }
   }
 });
+(function(){ if(!document.getElementById('tg-copies')) return;
+
+function sha256(text) {
+  const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+    0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1,
+    0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d,
+    0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967, 0x27b70a85, 0x2e1b2138, 0x4d2c6dfc,
+    0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85, 0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
+    0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070, 0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3,
+    0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3, 0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb,
+    0xbef9a3f7, 0xc67178f2];
+  const bytes = new TextEncoder().encode(text), n = bytes.length, size = ((n + 9 + 63) >> 6) << 6;
+  const buf = new Uint8Array(size); buf.set(bytes); buf[n] = 0x80;
+  const dv = new DataView(buf.buffer);
+  dv.setUint32(size - 8, Math.floor(n * 8 / 4294967296)); dv.setUint32(size - 4, (n * 8) >>> 0);
+  const H = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+  const w = new Uint32Array(64), rot = (x, r) => (x >>> r) | (x << (32 - r));
+  for (let i = 0; i < size; i += 64) {
+    for (let j = 0; j < 16; j++) w[j] = dv.getUint32(i + 4 * j);
+    for (let j = 16; j < 64; j++) {
+      const s0 = rot(w[j - 15], 7) ^ rot(w[j - 15], 18) ^ (w[j - 15] >>> 3), s1 = rot(w[j - 2], 17) ^ rot(w[j - 2], 19) ^ (w[j - 2] >>> 10);
+      w[j] = (w[j - 16] + s0 + w[j - 7] + s1) >>> 0; }
+    let [a, b, c, d, e, f, g, h] = H;
+    for (let j = 0; j < 64; j++) {
+      const t1 = (h + (rot(e, 6) ^ rot(e, 11) ^ rot(e, 25)) + ((e & f) ^ (~e & g)) + K[j] + w[j]) >>> 0;
+      const t2 = ((rot(a, 2) ^ rot(a, 13) ^ rot(a, 22)) + ((a & b) ^ (a & c) ^ (b & c))) >>> 0;
+      h = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0; }
+    [a, b, c, d, e, f, g, h].forEach((v, k) => { H[k] = (H[k] + v) >>> 0; });
+  }
+  return H.map(x => x.toString(16).padStart(8, "0")).join("");
+}
+function pyFloat(x) {
+  if (!isFinite(x)) return String(x);
+  if (Number.isInteger(x) && Math.abs(x) < 1e16) return x.toFixed(1);
+  const s = (Math.abs(x) < 1e-4 || Math.abs(x) >= 1e16) ? x.toExponential() : String(x);
+  return s.replace(/e([+-])(\d)$/, "e$10$2");
+}
+function pyJSON(v, sortKeys, ind, lvl) {
+  lvl = lvl || 0; const t = v[0], x = v[1];
+  if (t === "f") return pyFloat(x); if (t === "i") return String(x); if (t === "s") return JSON.stringify(x);
+  const items = x.slice(); if (sortKeys) items.sort((a, b) => (a[0] < b[0] ? -1 : (a[0] > b[0] ? 1 : 0)));
+  if (!ind) return "{" + items.map(kv => JSON.stringify(kv[0]) + ": " + pyJSON(kv[1], sortKeys)).join(", ") + "}";
+  const pad = " ".repeat(ind * (lvl + 1)), end = " ".repeat(ind * lvl);
+  return "{\n" + items.map(kv => pad + JSON.stringify(kv[0]) + ": " + pyJSON(kv[1], sortKeys, ind, lvl + 1)).join(",\n") + "\n" + end + "}";
+}
+
+const ARCH='8cce1406ba987a12';
+const att=(a,c)=>['o',[['worst concave points',['f',c]],['worst area',['f',a]]]];
+const COPIES=[
+  {where:'the archive of the clinic', rec:['o',[['case_id',['i',340]],['method',['s','LIME']],['fidelity',['f',0.69]],['attribution',att(-0.064,-0.112)]]], altered:false, why:'It is the original record.'},
+  {where:'an e-mail to the committee', rec:['o',[['case_id',['i',340]],['method',['s','LIME']],['fidelity',['f',0.96]],['attribution',att(-0.064,-0.112)]]], altered:true, why:'Its fidelity reads 0.96 instead of 0.69.'},
+  {where:'the folder of the auditor', rec:['o',[['case_id',['i',340]],['method',['s','LIME']],['fidelity',['f',0.69]],['attribution',att(-0.046,-0.112)]]], altered:true, why:'The attribution of the worst area reads -0.046 instead of -0.064.'},
+  {where:'a backup on a server', rec:['o',[['fidelity',['f',0.69]],['attribution',['o',[['worst area',['f',-0.064]],['worst concave points',['f',-0.112]]]]],['method',['s','LIME']],['case_id',['i',340]]]], altered:false, why:'Its fields stand in another order, but its content is that of the original.'}];
+const box=document.getElementById('tg-copies'), sels=[];
+COPIES.forEach((c,k)=>{ const out=h('p',{class:'small',style:'min-height:2.6em'});
+  const b=h('button',{class:'btn ghost',type:'button'},'Compute the digest');
+  b.addEventListener('click',()=>{ const d=sha256(pyJSON(c.rec,true)).slice(0,16); out.textContent='Digest of this copy: '+d+(d===ARCH?', the same as the archive.':', not the archived '+ARCH+'.'); });
+  const s=h('select',{'aria-label':'Verdict for copy '+(k+1)},[h('option',{value:''},'my verdict'),h('option',{value:'0'},'unchanged'),h('option',{value:'1'},'altered')]); sels.push(s);
+  box.append(h('div',{style:'border:1px solid var(--line);border-radius:6px;padding:10px;background:var(--panel)'},
+    h('p',{style:'margin:0 0 6px'},h('b',{},'Copy '+(k+1)+': '),c.where), h('pre',{style:'font-size:11.5px;margin:0 0 8px;white-space:pre;overflow-x:auto'},pyJSON(c.rec,false,2)), b, out, s)); });
+document.getElementById('tg-check').addEventListener('click',()=>{ const fb=document.getElementById('tg-fb'), v=sels.map(s=>s.value);
+  if(v.some(x=>x==='')){ fb.textContent='Choose a verdict for every copy.'; return; }
+  const ok=COPIES.map((c,k)=>(v[k]==='1')===c.altered), n=ok.filter(Boolean).length;
+  fb.textContent=(n===4?'Correct: ':'Not yet, '+n+' of 4 right: ')+COPIES.map((c,k)=>'Copy '+(k+1)+' is '+(c.altered?'altered':'unchanged')+(ok[k]?'':', check it again')+'. '+c.why).join(' ');
+  store.set('d5:partG:score',n===4?1:0); });
+})();
+
 })();
 </script>
 </body></html>

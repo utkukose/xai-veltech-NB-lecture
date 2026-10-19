@@ -1,5 +1,7 @@
 # Syllabus: Explainable Artificial Intelligence
 
+**This course is updated in line with current developments in the field. First version: October 2026. Last update: October 2026.**
+
 ## Course information
 
 | Item | Detail |
@@ -22,7 +24,7 @@ No programming experience is required. Basic secondary-school mathematics is ass
 
 ## Learning outcomes
 
-On completion, students are expected to distinguish interpretable models from post-hoc explanations and choose between them on measured evidence, to implement permutation importance, partial dependence, accumulated local effects, LIME, Shapley values, counterfactuals and anchors from first principles, to explain image and text models with gradients, Grad-CAM, relevance propagation, attention and concept probes, to test explanations for calibration, shift, adversarial fragility and fairness with a benchmark against a random baseline, and to document a model with reproducible explanation records and a model card. In Python, students are expected to write and debug short programs with variables, lists, dictionaries, loops and functions, to use NumPy, pandas, Matplotlib and scikit-learn for data and models, and to read a small neural network written in NumPy, with its forward and backward pass.
+On completion, students are expected to distinguish interpretable models from post-hoc explanations and choose between them on measured evidence, to implement permutation importance, partial dependence, accumulated local effects, LIME, Shapley values, counterfactuals and anchors from first principles, to explain image and text models with gradients, Grad-CAM, relevance propagation, attention and concept probes, to read a GEMEX explanation with its scores, its geodesic and its attention sequence, to test explanations for calibration, shift, adversarial fragility and fairness with a benchmark against a random baseline, and to document a model with reproducible explanation records and a model card. In Python, students are expected to write and debug short programs with variables, lists, dictionaries, loops and functions, to use NumPy, pandas, Matplotlib and scikit-learn for data and models, and to read a small neural network written in NumPy, with its forward and backward pass.
 
 ## Daily plan
 

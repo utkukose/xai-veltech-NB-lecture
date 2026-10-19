@@ -1,5 +1,7 @@
 # Final project: An explanation audit of a predictive model
 
+**This course is updated in line with current developments in the field. First version: October 2026. Last update: October 2026.**
+
 ## Overview
 
 The final project applies the whole course to one model. Students audit a model of their choice: They decide which stakeholder question the audit answers, test whether an interpretable model would be enough, explain the model with at least three methods, test the explanations for reliability and close with a model card and a recommendation. The project is done alone or in pairs.

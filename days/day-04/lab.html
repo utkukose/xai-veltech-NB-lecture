@@ -112,6 +112,12 @@ details.ans{margin:4px 0 14px}
 .colabbox p{margin:0}
 .colabbox .colabbtn img{display:block;height:22px}
 .colabpart{margin:.8rem 0 0;font-size:.95rem}
+.mail{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0;line-height:2.1;font-size:.98rem}
+.mailw{font:inherit;border:1.5px solid;border-radius:5px;padding:0 .3rem;margin:0 .05rem;cursor:pointer;color:var(--ink)}
+.mailw.off{text-decoration:line-through;opacity:.55}
+.backpart{margin:.9rem 0 0;font-size:.95rem;border-left:4px solid var(--accent);padding:.35rem .7rem;background:var(--panel);border-radius:6px}
+.backpart a{font-weight:600}
+.labbox{scroll-margin-top:12px}
 /* Step-by-step calculators of the lab */
 .labpart{scroll-margin-top:10px}
 h3[id]{scroll-margin-top:10px}
@@ -235,14 +241,14 @@ blockquote{border-left-color:var(--accent);border-radius:0 10px 10px 0}
 :root{--accent:#4338CA;--band:rgba(67,56,202,.08)}@media (prefers-color-scheme:dark){:root{--accent:#A5B4FC;--band:rgba(165,180,252,.13)}}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]]},svg:{fontCache:"local"}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head>
 <body><div class="wrap">
 <header class="top"><p class="course">Explainable Artificial Intelligence (VTR UGE 21), day 4 of 5</p><h1>Reliability of Explanations</h1><p class="who">Prof. Dr. Utku Kose, Süleyman Demirel University</p><nav><a href="../../index.html">Course home</a><a href="https://github.com/utkukose/xai-veltech-NB-lecture/tree/main/days/day-04">Day overview</a><a href="lecture.html">Lecture</a><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-04/NB04_reliability_of_explanations.ipynb">Colab notebook</a><a href="Day04_Lecture_Notes.pdf">PDF notes</a></nav></header>
-<h2>Reliability lab</h2><p>Part A repeats the calibration error of ten cases step by step, with sliders for its numbers. Part B classifies four reliability diagrams by eye. Parts C and D repeat two further calculations of the lecture step by step: one prediction with two explanations, and two fairness measures. Part E computes two fairness measures by hand. Part F runs the deletion and insertion tests in the browser and measures the area under each curve, abbreviated AUC. In Parts A, C and D every intermediate value is rounded, and the next step continues with the rounded value, as in a calculation by hand.</p>
+<h2>Reliability lab</h2><p>Part A repeats the calibration error of ten cases step by step, with sliders for its numbers. Part B classifies four reliability diagrams by eye. Parts C and D repeat two further calculations of the lecture step by step: one prediction with two explanations, and two fairness measures. Part E computes two fairness measures by hand. Part F runs the deletion and insertion tests in the browser and measures the area under each curve, abbreviated AUC. Part G is a calibration game: Twelve questions answered with a confidence give a reliability diagram, an expected calibration error and a Brier score of one's own. In Parts A, C and D every intermediate value is rounded, and the next step continues with the rounded value, as in a calculation by hand.</p>
 <div class="tabs" role="tablist"><button aria-selected="true">Explore</button><button aria-selected="false">Check yourself</button><button aria-selected="false">Reflect and export</button></div>
-<section class="tabpanel"><section class="labpart" id="pa"><h3>Part A: The calibration error of ten cases, step by step</h3><p>The worked example of the lecture: ten cases with their probabilities and labels, the same cases as in Python step 4. The probabilities are 0.05, 0.12, 0.35, 0.41, 0.62, 0.68, 0.81, 0.93, 0.97 and 0.22, and the labels 0, 0, 1, 0, 1, 1, 1, 1, 1 and 0. The controls choose the number of bins and whether every probability is squared, the change that keeps the order and worsens the calibration. The steps sort the cases into bins and compute the calibration error and the Brier score. The figure is the reliability diagram: one point per bin, sized by the number of its cases.</p><div class="stepcalc" id="pa-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-04/NB04_reliability_of_explanations.ipynb#scrollTo=sec-1" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 1: the calibration error of three credit models on 1200 test applicants.</a></p><h3 id="pb">Part B: Calibration by eye</h3>
+<section class="tabpanel"><section class="labpart" id="pa"><h3>Part A: The calibration error of ten cases, step by step</h3><p>The worked example of the lecture: ten cases with their probabilities and labels, the same cases as in Python step 4. The probabilities are 0.05, 0.12, 0.35, 0.41, 0.62, 0.68, 0.81, 0.93, 0.97 and 0.22, and the labels 0, 0, 1, 0, 1, 1, 1, 1, 1 and 0. The controls choose the number of bins and whether every probability is squared, the change that keeps the order and worsens the calibration. The steps sort the cases into bins and compute the calibration error and the Brier score. The figure is the reliability diagram: one point per bin, sized by the number of its cases.</p><div class="stepcalc" id="pa-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pa">Back to the lecture: Can the probability be trusted?</a>, where the text continues after the box of this part.</p><h3 id="pb">Part B: Calibration by eye</h3>
 <p>Each diagram plots the observed frequency against the mean predicted probability in bins, for one model. The dashed
 diagonal is perfect calibration. Decide what each model does and press <b>Check the diagrams</b>.</p>
 <div id="cb-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px"></div>
 <p><button class="btn" id="cb-check" type="button">Check the diagrams</button> <span id="cb-score" class="small"></span></p>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-04/NB04_reliability_of_explanations.ipynb#scrollTo=sec-1" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 1: reliability diagrams of three real models, before and after recalibration.</a></p><section class="labpart" id="pc"><h3>Part C: One prediction, two explanations</h3><p>The worked example of the lecture: the model \(f(x_1, x_2)\)​\({} = \sigma(3(\sin(2 x_1) + x_2))\) gives the prediction 0.7685 at every point of the curve \(x_2 = 0.4 - \sin(2 x_1)\). The sliders place two points on this curve by their first coordinate. The steps compute the second coordinates, the prediction, the gradients, the explanations by gradient times input and their cosine similarity. The left figure shows the curve with the two points, and the right one draws the two explanations as arrows.</p><div class="stepcalc" id="pc-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-04/NB04_reliability_of_explanations.ipynb#scrollTo=sec-4" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 4: an attack that changes the explanation of a real tumour.</a></p><section class="labpart" id="pd"><h3>Part D: Two fairness measures, step by step</h3><p>The worked example of the lecture: a model decides about 200 applicants of group A, of whom 100 would repay, and 150 of group B, of whom 60 would repay. The sliders set how many applicants of each kind the model approves. The steps compute the approval rate, the true positive rate and the false positive rate of both groups and the two differences of the lecture. The figure compares the three rates of the two groups.</p><div class="stepcalc" id="pd-calc"></div></section><p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-04/NB04_reliability_of_explanations.ipynb#scrollTo=sec-5" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 5: the fairness audit of the credit model and its proxy.</a></p><h3 id="pe">Part E: Fairness measures by hand</h3>
+<p class="backpart"><a href="lecture.html#lab-pb">Back to the lecture: Can the probability be trusted?</a>. The lecture continues there with Section 1 of the Colab notebook: Open it from the next orange box.</p><section class="labpart" id="pc"><h3>Part C: One prediction, two explanations</h3><p>The worked example of the lecture: the model \(f(x_1, x_2)\)​\({} = \sigma(3(\sin(2 x_1) + x_2))\) gives the prediction 0.7685 at every point of the curve \(x_2 = 0.4 - \sin(2 x_1)\). The sliders place two points on this curve by their first coordinate. The steps compute the second coordinates, the prediction, the gradients, the explanations by gradient times input and their cosine similarity. The left figure shows the curve with the two points, and the right one draws the two explanations as arrows.</p><div class="stepcalc" id="pc-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pc">Back to the lecture: Can the explanation be manipulated?</a>. The lecture continues there with Section 4 of the Colab notebook: Open it from the next orange box.</p><section class="labpart" id="pd"><h3>Part D: Two fairness measures, step by step</h3><p>The worked example of the lecture: a model decides about 200 applicants of group A, of whom 100 would repay, and 150 of group B, of whom 60 would repay. The sliders set how many applicants of each kind the model approves. The steps compute the approval rate, the true positive rate and the false positive rate of both groups and the two differences of the lecture. The figure compares the three rates of the two groups.</p><div class="stepcalc" id="pd-calc"></div></section><p class="backpart"><a href="lecture.html#lab-pd">Back to the lecture: Can the decision be trusted? Fairness and proxies</a>, where the text continues after the box of this part.</p><h3 id="pe">Part E: Fairness measures by hand</h3>
 <p>A credit model was applied to 100 applicants of each group. Compute the two fairness measures of the lecture from the
 counts and press <b>Check my values</b>.</p>
 <div class="tablewrap"><table><thead><tr><th>Group</th><th>Applicants</th><th>Would repay</th><th>Approved, of those who would repay</th>
@@ -250,12 +256,13 @@ counts and press <b>Check my values</b>.</p>
 <tr><td>B</td><td>100</td><td>50</td><td>18</td><td>2</td></tr></tbody></table></div>
 <div class="row" id="fc-in"></div>
 <p><button class="btn" id="fc-check" type="button">Check my values</button> <span id="fc-score" class="small"></span></p>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-04/NB04_reliability_of_explanations.ipynb#scrollTo=sec-5" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 5: a full fairness audit and the proxy that carries the gap.</a></p><h3 id="pf">Part F: Deletion and insertion</h3>
+<p class="backpart"><a href="lecture.html#lab-pe">Back to the lecture: Can the decision be trusted? Fairness and proxies</a>. The lecture continues there with Section 5 of the Colab notebook: Open it from the next orange box.</p><h3 id="pf">Part F: Deletion and insertion</h3>
 <div class="bench">
 <p>A model of eight features explains twenty cases. Choose an explanation method and run the deletion and insertion tests:
 Features that support the prediction are removed first, or added first, and the probability of the predicted class is
 recorded. A faithful explanation makes the deletion curve fall fast and the insertion curve rise fast. Every run is
-compared with a random ranking, which any method must beat.</p>
+compared with a random ranking, which any method must beat, including SHAP, short for Shapley additive explanations,
+and LIME, short for local interpretable model-agnostic explanations.</p>
 <div class="row"><div class="ctl"><label for="b-m">Explanation</label><select id="b-m">
 <option value="local">gradient times input (local)</option><option value="noisy">gradient times input with noise</option>
 <option value="global">global ranking by weight size</option><option value="random">random ranking</option></select></div></div>
@@ -268,10 +275,36 @@ compared with a random ranking, which any method must beat.</p>
 <div class="tablewrap"><table><thead><tr><th>Run</th><th>Explanation</th><th>Noise</th><th>Deletion AUC</th><th>Insertion AUC</th>
 <th>Faithfulness</th><th>Beats random?</th></tr></thead><tbody id="b-tb"></tbody></table></div>
 </div>
-<p class="colabpart"><a href="https://colab.research.google.com/github/utkukose/xai-veltech-NB-lecture/blob/main/days/day-04/NB04_reliability_of_explanations.ipynb#scrollTo=sec-6" target="_blank" rel="noopener"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">Continue in Colab, section 6: the same test with SHAP (Shapley additive explanations), LIME (local interpretable model-agnostic explanations) and a random forest on real data.</a></p></section>
+<p class="backpart"><a href="lecture.html#lab-pf">Back to the lecture: Does the explanation beat random?</a>. The lecture continues there with Section 6 of the Colab notebook: Open it from the next orange box.</p><h3 id="pg">Part G: How sure are you? A calibration game</h3>
+<p>Twelve questions from geography, science and history, each with two answers. Choose an answer and say how sure you are,
+from 50 percent, a pure guess, to 100 percent, certain. A person is calibrated when the answers given with 70 percent
+confidence are right about 7 times in 10, as a model is calibrated when its probabilities match the observed frequencies.
+When all twelve questions are answered, <b>Show my calibration</b> draws the reliability diagram of the answers, with one
+point for every level of confidence, and computes the expected calibration error, abbreviated ECE, in the form of Guo and
+colleagues, with the confidence in the chosen answer and the share of right answers in each bin, \(\mathrm{ECE}\)​\({} =
+\sum_b (n_b / n)\, |\bar{y}_b - \bar{p}_b|\). The Brier score averages \((p - y)^2\) over the answers, with the confidence \(p\) and
+\(y = 1\) for a right answer and \(y = 0\) for a wrong one. Twelve answers are a small sample, so the result is a first
+impression.</p>
+<div class="bench"><div id="cg-list"></div>
+<p><button class="btn" id="cg-show" type="button">Show my calibration</button>
+<button class="btn ghost" id="cg-reset" type="button">Start again</button> <span class="small" id="cg-n"></span></p>
+<div id="cg-out" hidden>
+<canvas class="paper" id="cg-cv" aria-label="Reliability diagram of the answers"></canvas>
+<div id="cg-ro"></div>
+<div class="tablewrap"><table><thead><tr><th>Confidence \(\bar{p}_b\)</th><th>Answers \(n_b\)</th><th>Right</th>
+<th>Share right \(\bar{y}_b\)</th><th>Gap \(|\bar{y}_b - \bar{p}_b|\)</th><th>Weight \(n_b / n\)</th></tr></thead>
+<tbody id="cg-tb"></tbody></table></div>
+<p class="small" id="cg-sum"></p>
+<div class="row"><div class="ctl"><label for="cg-v">My answers were</label><select id="cg-v"><option value="">choose</option>
+<option value="over">overconfident, more sure than right</option><option value="cal">calibrated, about as sure as right</option>
+<option value="under">underconfident, right more often than sure</option></select></div></div>
+<p><button class="btn" id="cg-check" type="button">Check my reading</button> <span class="small" id="cg-fb"></span></p>
+<div id="cg-facts"></div>
+</div></div>
+<p class="backpart"><a href="lecture.html#lab-pg">Back to the lecture: Reliability in your field</a>. The lecture continues there with Section 7 of the Colab notebook: Open it from the next orange box.</p></section>
 <section class="tabpanel" hidden><p>Answer each question, rate your confidence and check the answer. Results stay in this browser.</p><div id="quiz"></div></section>
 <section class="tabpanel" hidden><p>Write a short answer to each question. The text is saved in this browser and is included when you export the learning log.</p><div id="reflect"></div></section>
-<footer class="sig"><p><strong>Prof. Dr. Utku Kose</strong><br>Full Professor, Department of Computer Engineering, Süleyman Demirel University, Isparta, Türkiye<br>Founding Director, AI Application and Research Center (YAZEM), Süleyman Demirel University<br>Head of the Computer Science Division, Department of Computer Engineering, Süleyman Demirel University<br>Additional affiliations: University of North Dakota (USA), Universidad Panamericana (Mexico City, Mexico), Vel Tech University (Chennai, India)<br>IEEE Senior Member, ACM Professional Member<br><a href="https://orcid.org/0000-0002-9652-6415">ORCID 0000-0002-9652-6415</a> | <a href="https://www.utkukose.com">utkukose.com</a> | <a href="https://github.com/utkukose">github.com/utkukose</a><br><a href="mailto:utkukose@sdu.edu.tr">utkukose@sdu.edu.tr</a> | <a href="mailto:utku.kose@und.edu">utku.kose@und.edu</a> | <a href="mailto:ukose@up.edu.mx">ukose@up.edu.mx</a> | <a href="mailto:utkukose@gmail.com">utkukose@gmail.com</a></p><p>This course is updated in line with current developments in the field. Last update: October 2026. Course materials licensed under CC BY 4.0. Code licensed under MIT.</p></footer></div>
+<footer class="sig"><p><strong>Prof. Dr. Utku Kose</strong><br>Full Professor, Department of Computer Engineering, Süleyman Demirel University, Isparta, Türkiye<br>Founding Director, AI Application and Research Center (YAZEM), Süleyman Demirel University<br>Head of the Computer Science Division, Department of Computer Engineering, Süleyman Demirel University<br>Additional affiliations: University of North Dakota (USA), Universidad Panamericana (Mexico City, Mexico), Vel Tech University (Chennai, India)<br>IEEE Senior Member, ACM Professional Member<br><a href="https://orcid.org/0000-0002-9652-6415">ORCID 0000-0002-9652-6415</a> | <a href="https://www.utkukose.com">utkukose.com</a> | <a href="https://github.com/utkukose">github.com/utkukose</a><br><a href="mailto:utkukose@sdu.edu.tr">utkukose@sdu.edu.tr</a> | <a href="mailto:utku.kose@und.edu">utku.kose@und.edu</a> | <a href="mailto:ukose@up.edu.mx">ukose@up.edu.mx</a> | <a href="mailto:utkukose@gmail.com">utkukose@gmail.com</a></p><p>This course is updated in line with current developments in the field. First version: October 2026. Last update: October 2026. Course materials licensed under CC BY 4.0. Code licensed under MIT.</p></footer></div>
 <script>window.COURSE_PREFIX="vtxai";</script>
 <script>"use strict";
 const $ = (s, r = document) => r.querySelector(s);
@@ -919,6 +952,62 @@ partSteps('pd-calc', {
     }
   }
 });
+(function(){ if(!document.getElementById('cg-list')) return;
+const Q=[['Which is longer?',['a marathon','40 kilometres'],0,'A marathon is 42.195 km long.'],
+['Which is hotter?',['the surface of the Sun','the air in the channel of a lightning bolt'],1,'Lightning heats the air of its channel to about 30000 °C, about five times the temperature of the surface of the Sun.'],
+['Which takes longer?',['one turn of Venus about its own axis','one trip of Venus around the Sun'],0,'Venus turns once about its axis in 243 Earth days and goes around the Sun in about 225.'],
+['Which is greater?',['the height of Mount Everest above sea level','the depth of the deepest point of the ocean below sea level'],1,'The deepest point of the ocean, the Challenger Deep, lies about 10900 m below sea level, and Mount Everest rises 8849 m above it.'],
+['Which was finished first?',['the Eiffel Tower in Paris','the Statue of Liberty in New York'],1,'The Statue of Liberty was dedicated in 1886, and the Eiffel Tower was completed in 1889.'],
+['Which has the higher melting point?',['iron','gold'],0,'Iron melts at 1538 °C and gold at 1064 °C.'],
+['Which makes up a larger share of dry air?',['argon','carbon dioxide'],0,'Dry air holds about 0.93 percent argon and about 0.04 percent carbon dioxide.'],
+['Which number is larger?',['10 to the power of 3','2 to the power of 10'],1,'The product of ten factors of 2 is 1024, and the product of three factors of 10 is 1000.'],
+['Which country has the larger area?',['Argentina','India'],1,'India covers about 3.29 million square kilometres and Argentina about 2.78 million.'],
+['Which city lies farther north?',['Mumbai','Chennai'],0,'Mumbai lies at about 19 degrees north and Chennai at about 13 degrees north.'],
+['Where does sound travel faster?',['in water','in air'],0,'Sound travels at about 1480 metres per second in water and at about 343 metres per second in air at 20 °C.'],
+['Which came first?',['the first Cricket World Cup','the first landing of people on the Moon'],1,'People first landed on the Moon in July 1969. The first Cricket World Cup of women was held in 1973 and that of men in 1975.']];
+
+const LV=[0.5,0.6,0.7,0.8,0.9,1.0], fresh=()=>Q.map(()=>({pick:-1,conf:-1}));
+let ans=store.get('d4:partG:answers',null); if(!Array.isArray(ans)||ans.length!==Q.length) ans=fresh();
+let res=null; const rows=[], list=$('#cg-list'), out=$('#cg-out');
+Q.forEach((q,i)=>{ const bs=q[1].map((t,k)=>{ const b=h('button',{class:'btn ghost',type:'button','aria-pressed':'false'},t); b.addEventListener('click',()=>{ ans[i].pick=k; save(); paint(); }); return b; });
+  const sel=h('select',{'aria-label':'How sure are you of question '+(i+1)+'?'},[h('option',{value:''},'How sure?')].concat(LV.map(v=>h('option',{value:String(v)},Math.round(100*v)+' percent'+(v===0.5?', a guess':(v===1?', certain':''))))));
+  sel.addEventListener('change',()=>{ ans[i].conf=sel.value===''?-1:parseFloat(sel.value); save(); paint(); });
+  list.append(h('div',{style:'border-top:1px solid var(--line);padding:8px 0'},h('p',{style:'margin:0 0 6px'},h('b',{},(i+1)+'. '),q[0]),h('div',{class:'row'},bs,sel)));
+  rows.push({bs,sel}); });
+function save(){ store.set('d4:partG:answers',ans); }
+const done=()=>ans.filter(a=>a.pick>=0&&a.conf>0).length;
+function paint(){ rows.forEach((r,i)=>{ r.bs.forEach((b,k)=>{ const on=ans[i].pick===k; b.setAttribute('aria-pressed',String(on)); b.className=on?'btn':'btn ghost'; });
+  r.sel.value=ans[i].conf>0?String(ans[i].conf):''; }); $('#cg-n').textContent='Answered: '+done()+' of '+Q.length+'.'; }
+const ro=readout($('#cg-ro'),['mean confidence','share of right answers','expected calibration error','Brier score, against 0.25 for always 50 percent']);
+function compute(){ const B=LV.map(v=>({v,n:0,r:0})), n=Q.length; let bs=0, mc=0, right=0;
+  ans.forEach((a,i)=>{ const ok=a.pick===Q[i][2]?1:0, b=B[LV.indexOf(a.conf)]; b.n++; b.r+=ok; bs+=(a.conf-ok)*(a.conf-ok); mc+=a.conf; right+=ok; });
+  const used=B.filter(b=>b.n>0); let ece=0; used.forEach(b=>{ b.acc=b.r/b.n; b.gap=Math.abs(b.acc-b.v); b.w=b.n/n; ece+=b.w*b.gap; });
+  res={B:used,ece,brier:bs/n,mc:mc/n,acc:right/n,right};
+  const tb=$('#cg-tb'); tb.innerHTML='';
+  used.forEach(b=>tb.append(h('tr',{},[b.v.toFixed(1),b.n,b.r,b.acc.toFixed(3),b.gap.toFixed(3),b.n+' / '+n].map(x=>h('td',{},String(x))))));
+  ro('mean confidence',res.mc.toFixed(3)); ro('share of right answers',res.right+' of '+n+' = '+res.acc.toFixed(3));
+  ro('expected calibration error',res.ece.toFixed(3)); ro('Brier score, against 0.25 for always 50 percent',res.brier.toFixed(3));
+  $('#cg-sum').textContent='ECE = '+used.map(b=>'('+b.n+' / '+n+') × '+b.gap.toFixed(3)).join(' + ')+' = '+res.ece.toFixed(3)+'. Points below the diagonal mark levels of confidence at which you were right less often than you were sure.';
+  const fx=$('#cg-facts'); fx.innerHTML=''; fx.append(h('h4',{},'The right answers'));
+  Q.forEach((q,i)=>{ const ok=ans[i].pick===q[2]; fx.append(h('p',{class:'small'},h('b',{style:'color:'+(ok?'var(--ok)':'var(--bad)')},(ok?'Right':'Wrong')+', '+Math.round(100*ans[i].conf)+' percent sure. '),(i+1)+'. '+q[0]+' The right answer is '+q[1][q[2]]+'. '+q[3])); }); }
+const st=stage($('#cg-cv'),0.5,(ctx,w,hh)=>{ const C=COL(); ctx.clearRect(0,0,w,hh); if(!res) return;
+  const F=frame(ctx,w,hh,{x0:0.5,x1:1,y0:0,y1:1,ticks:5,xlabel:'confidence of the answers',ylabel:'share of right answers'});
+  polyline(ctx,[[F.X(0.5),F.Y(0.5)],[F.X(1),F.Y(1)]],C.steel,1.4,[5,4]);
+  ctx.font='11px '+cssv('--sans'); ctx.fillStyle=C.steel; ctx.textAlign='left'; ctx.fillText('calibrated',F.X(0.86),F.Y(0.86)+16);
+  polyline(ctx,res.B.map(b=>[F.X(b.v),F.Y(b.acc)]),C.c[3],2.2);
+  res.B.forEach(b=>{ dot(ctx,F.X(b.v),F.Y(b.acc),4+2.2*Math.sqrt(b.n),C.c[3],C.ink); ctx.fillStyle=C.ink; ctx.textAlign='center'; ctx.font='11px '+cssv('--sans');
+    ctx.fillText(b.r+' of '+b.n,F.X(b.v),F.Y(b.acc)-10-2.2*Math.sqrt(b.n)); }); });
+$('#cg-show').addEventListener('click',()=>{ const n=done(); if(n<Q.length){ $('#cg-n').textContent='Answer all twelve questions first: '+n+' of '+Q.length+' answered.'; return; }
+  out.hidden=false; compute(); st.redraw(); window.dispatchEvent(new Event('resize')); });
+$('#cg-reset').addEventListener('click',()=>{ ans=fresh(); save(); res=null; out.hidden=true; $('#cg-fb').textContent=''; $('#cg-v').value=''; paint(); });
+$('#cg-check').addEventListener('click',()=>{ const fb=$('#cg-fb'); if(!res){ fb.textContent='Show the calibration first.'; return; }
+  const v=$('#cg-v').value; if(!v){ fb.textContent='Choose a reading first.'; return; }
+  const d=res.mc-res.acc, truth=d>0.05?'over':(d<-0.05?'under':'cal'), ok=v===truth;
+  fb.textContent=(ok?'Correct: ':'Not yet: ')+'Your mean confidence is '+res.mc.toFixed(3)+' and your share of right answers '+res.acc.toFixed(3)+(truth==='over'?', so you were more sure than right.':(truth==='under'?', so you were right more often than you were sure.':', within 0.05 of each other.'));
+  store.set('d4:partG:score',ok?1:0); });
+paint();
+})();
+
 })();
 </script>
 </body></html>

@@ -6,9 +6,9 @@
 
 *A five-day course on explaining machine learning models, with lecture pages, animations, interactive labs, Colab notebooks and a Python track for beginners*
 
-![last update](https://img.shields.io/badge/last%20update-October%202026-B97813) ![course code](https://img.shields.io/badge/course%20code-VTR%20UGE%2021-1F5F8B) ![format](https://img.shields.io/badge/format-5%20days-1F5F8B) ![delivery](https://img.shields.io/badge/delivery-synchronous%20and%20asynchronous-0E7A78) ![notebooks](https://img.shields.io/badge/notebooks-Google%20Colab-F9AB00) ![content](https://img.shields.io/badge/content-CC%20BY%204.0-555555) ![code](https://img.shields.io/badge/code-MIT-555555)
+![first version](https://img.shields.io/badge/first%20version-October%202026-566A73) ![last update](https://img.shields.io/badge/last%20update-October%202026-B97813) ![course code](https://img.shields.io/badge/course%20code-VTR%20UGE%2021-1F5F8B) ![format](https://img.shields.io/badge/format-5%20days-1F5F8B) ![delivery](https://img.shields.io/badge/delivery-synchronous%20and%20asynchronous-0E7A78) ![notebooks](https://img.shields.io/badge/notebooks-Google%20Colab-F9AB00) ![content](https://img.shields.io/badge/content-CC%20BY%204.0-555555) ![code](https://img.shields.io/badge/code-MIT-555555)
 
-**This course is updated in line with current developments in the field. Last update: October 2026.**
+**This course is updated in line with current developments in the field. First version: October 2026. Last update: October 2026.**
 
 **Prof. Dr. Utku Kose**
 
@@ -48,7 +48,7 @@ The course is written for undergraduate and graduate students of engineering, sc
 
 ## Course learning outcomes
 
-On completion, students are expected to distinguish interpretable models from post-hoc explanations and choose between them on measured evidence, to implement permutation importance, partial dependence, accumulated local effects, LIME, Shapley values, counterfactuals and anchors from first principles, to explain image and text models with gradients, Grad-CAM, relevance propagation, attention and concept probes, to test explanations for calibration, shift, adversarial fragility and fairness with a benchmark against a random baseline, and to document a model with reproducible explanation records and a model card. In Python, students are expected to write and debug short programs with variables, lists, dictionaries, loops and functions, to use NumPy, pandas, Matplotlib and scikit-learn for data and models, and to read a small neural network written in NumPy, with its forward and backward pass.
+On completion, students are expected to distinguish interpretable models from post-hoc explanations and choose between them on measured evidence, to implement permutation importance, partial dependence, accumulated local effects, LIME, Shapley values, counterfactuals and anchors from first principles, to explain image and text models with gradients, Grad-CAM, relevance propagation, attention and concept probes, to read a GEMEX explanation with its scores, its geodesic and its attention sequence, to test explanations for calibration, shift, adversarial fragility and fairness with a benchmark against a random baseline, and to document a model with reproducible explanation records and a model card. In Python, students are expected to write and debug short programs with variables, lists, dictionaries, loops and functions, to use NumPy, pandas, Matplotlib and scikit-learn for data and models, and to read a small neural network written in NumPy, with its forward and backward pass.
 
 ## How the course works
 
@@ -66,7 +66,7 @@ One project runs through the whole week: the explanation audit of the models of 
 |---|---|---|---|
 | [Day 1](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-01/lecture.html#the-diagnosis-case-stage-1-readable-models-and-a-shortcut-found) | Readable models of the tumour data, and a model of the lesion images whose weights reveal a shortcut. | A threshold rule, a logistic regression, a tree, a random forest for comparison, a map of the weights | 31 values of the logistic regression reach an accuracy of 0.986, against 0.958 for the forest; 4.7 percent of the weight of the lesion model lies on a marker of 1.6 percent of the image |
 | [Day 2](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-02/lecture.html#the-diagnosis-case-stage-2-the-random-forest-explained-from-the-outside) | The random forest stays closed and is questioned through its predictions alone. | Permutation importance, partial dependence and individual conditional expectation curves, LIME, SHAP, a counterfactual | Test patient 3: 0.626 + 0.262 = 0.888 from the SHAP values; a counterfactual that is valid and sparse but not plausible |
-| [Day 3](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-03/lecture.html#the-diagnosis-case-stage-3-the-network-caught-looking-at-the-marker) | A convolutional network on the lesion images, explained from the inside and graded against the planted marker. | Saliency, gradient times input, SmoothGrad, Integrated Gradients, Grad-CAM, a sanity test | The pixel-level maps peak on the marker in 40 of 40 images and pass the sanity test; 31 of 40 Grad-CAM maps are empty |
+| [Day 3](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-03/lecture.html#the-diagnosis-case-stage-3-the-network-caught-looking-at-the-marker) | A convolutional network on the lesion images, explained from the inside and graded against the planted marker. | Saliency, gradient times input, SmoothGrad, Integrated Gradients, Grad-CAM, a sanity test, GEMEX | The pixel-level maps peak on the marker in 40 of 40 images and pass the sanity test; 31 of 40 Grad-CAM maps are empty; through the probabilities alone, GEMEX gives the marker patch the largest score in 4 of 4 images |
 | [Day 4](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-04/lecture.html#the-diagnosis-case-stage-4-how-far-the-results-can-be-trusted) | How far the probabilities, the explanations and the decisions of the models can be trusted. | Calibration, a domain classifier for shift, a manipulated explanation, fairness measures and a proxy, a benchmark against a random ranking | Recalibration brings the calibration error of the deep credit model from 0.203 to 0.026; the postcode carries 0.39 of a gap of 0.81; SHAP reaches a faithfulness of 0.188 against −0.101 for a random ranking |
 | [Day 5](https://utkukose.github.io/xai-veltech-NB-lecture/days/day-05/lecture.html#the-diagnosis-case-stage-5-artefacts-for-the-clinic) | The results leave the notebook as artefacts for the people who use them. | An explanation record with a digest, a dashboard, a model card generated from the model, the risk tiers of the Artificial Intelligence Act of the European Union | The record of patient 518 with a fidelity of 0.7246; a card with an accuracy of 0.958 and an AUC of 0.994; an advisory model for health care is high risk |
 
@@ -131,11 +131,15 @@ The course text, figures, lecture notes and interactive labs are licensed under 
 
 [6] Van Rossum, G., & Drake, F. L. (2009). Python 3 Reference Manual. CreateSpace.
 
-[7] Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., et al. (2020). Array programming with NumPy. Nature, 585(7825), 357-362. <https://doi.org/10.1038/s41586-020-2649-2>
+[7] Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., Kern, R., Picus, M., Hoyer, S., van Kerkwijk, M. H., Brett, M., Haldane, A., Fernández del Río, J., Wiebe, M., Peterson, P., Gérard-Marchant, P., Sheppard, K., Reddy, T., Weckesser, W., Abbasi, H., Gohlke, C., & Oliphant, T. E. (2020). Array programming with NumPy. Nature, 585(7825), 357-362. <https://doi.org/10.1038/s41586-020-2649-2>
 
 [8] McKinney, W. (2010). Data structures for statistical computing in Python. In Proceedings of the 9th Python in Science Conference (pp. 56-61). <https://doi.org/10.25080/Majora-92bf1922-00a>
 
 [9] Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+
+## Human-AI collaboration
+
+This course was developed through human-AI collaboration. Human intellectual knowledge and expertise are the fundamental starting point of the course. The course author guides and supervises every stage of its development. The final version is presented only after the course author's review and approval.
 
 ---
 
